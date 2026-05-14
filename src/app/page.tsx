@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Zap, Globe, Phone, Shield, ArrowRight, Star, CheckCircle2, ChevronRight } from "lucide-react";
+import { Zap, Globe, Phone, Shield, ArrowRight, CheckCircle2, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Navbar } from "@/components/navbar";
@@ -33,12 +33,6 @@ const STEPS = [
   { step: "01", title: "Create your account", desc: "Sign up with your phone number in under 2 minutes." },
   { step: "02", title: "Add funds", desc: "Top up your wallet via bank transfer or card." },
   { step: "03", title: "Send anywhere", desc: "Enter a phone number, amount, and hit send. Done." },
-];
-
-const TESTIMONIALS = [
-  { name: "Maria S.", country: "🇵🇭 Philippines", text: "I send money home every week. PulsePay is 10x cheaper than Western Union.", rating: 5 },
-  { name: "James O.", country: "🇳🇬 Nigeria", text: "Received my freelance payment in seconds. This is the future of money.", rating: 5 },
-  { name: "Priya N.", country: "🇮🇳 India", text: "Finally an app that doesn't charge me a fortune to receive money from abroad.", rating: 5 },
 ];
 
 const fadeUp = {
@@ -83,7 +77,7 @@ export default function LandingPage() {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground"
           >
-            PulsePay uses Stellar blockchain and USDC stablecoin to move money globally — instantly, cheaply, and without the complexity of crypto.
+            PulsePay uses Stellar blockchain and USDC stablecoin to move money globally instantly, cheaply, and without the complexity of crypto.
           </motion.p>
 
           <motion.div
@@ -110,7 +104,7 @@ export default function LandingPage() {
             transition={{ delay: 0.5, duration: 0.6 }}
             className="mt-8 flex items-center justify-center gap-6 text-sm text-muted-foreground"
           >
-            {["No credit card required", "Free to sign up", "150+ countries"].map((t) => (
+            {["No credit card required", "Free to sign up"].map((t) => (
               <span key={t} className="flex items-center gap-1.5">
                 <CheckCircle2 className="h-3.5 w-3.5 text-primary" /> {t}
               </span>
@@ -212,39 +206,6 @@ export default function LandingPage() {
                 )}
                 <h3 className="mb-2 font-semibold">{s.title}</h3>
                 <p className="text-sm text-muted-foreground">{s.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="bg-muted/30 px-4 py-20">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-12 text-center">
-            <h2 className="text-3xl font-bold tracking-tight">Loved by people worldwide</h2>
-          </div>
-          <div className="grid gap-6 sm:grid-cols-3">
-            {TESTIMONIALS.map((t, i) => (
-              <motion.div
-                key={t.name}
-                custom={i}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true }}
-                variants={fadeUp}
-                className="rounded-2xl border border-border bg-card p-6 shadow-sm"
-              >
-                <div className="mb-3 flex gap-0.5">
-                  {Array.from({ length: t.rating }).map((_, j) => (
-                    <Star key={j} className="h-4 w-4 fill-amber-400 text-amber-400" />
-                  ))}
-                </div>
-                <p className="mb-4 text-sm text-muted-foreground">&ldquo;{t.text}&rdquo;</p>
-                <div>
-                  <p className="text-sm font-semibold">{t.name}</p>
-                  <p className="text-xs text-muted-foreground">{t.country}</p>
-                </div>
               </motion.div>
             ))}
           </div>
